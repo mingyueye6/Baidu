@@ -42,11 +42,12 @@ class BaiduAPI(object):
         res.encoding = 'utf-8'
         res = res.json()
         words = res.get('words_result', '')
+        word_str = ''
         if words:
-            word_str = ''
             for i in words:
                 word_str += i['words']
             print(word_str)
+        return word_str
 
     def get_antispam(self, content):
         '''敏感词鉴定'''
@@ -59,6 +60,7 @@ class BaiduAPI(object):
         res.encoding = 'utf-8'
         res = res.json()
         print(res)
+        return res
 
 
 def get_img_base64():
